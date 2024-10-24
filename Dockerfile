@@ -2,7 +2,7 @@ FROM python:3.12.6-slim
 
 WORKDIR /app
 
-COPY ./ /app
+COPY ./app /app
 
 # 创建虚拟环境
 RUN python -m venv .venv --prompt nonebot2
