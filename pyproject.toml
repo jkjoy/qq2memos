@@ -1,7 +1,7 @@
 [project]
-name = "qq"
+name = "qq2memos"
 version = "0.1.0"
-description = "qq"
+description = "send message qq to memosbot"
 readme = "README.md"
 requires-python = ">=3.8, <4.0"
 
