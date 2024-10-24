@@ -18,7 +18,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # 文件路径
-JSON_FILE = "users_data.json"
+JSON_FILE = "/app/data/bind.json"
 
 # 读取 JSON 数据
 def read_json() -> Dict[str, Any]:
