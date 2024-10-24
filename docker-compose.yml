@@ -1,0 +1,11 @@
+services:
+  memos:
+    container_name: memos
+    environment:
+      - MEMOS_API=https://memos.imsun.org/api/v1/memo #Memos的API地址,自行修改
+    image: jkjoy/qq2memos:latest  
+    volumes:  
+      - "./data:/app/data"  
+    restart: always
+    ports:
+      - 8080:8080
