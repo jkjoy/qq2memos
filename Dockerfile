@@ -20,4 +20,4 @@ RUN . .venv/bin/activate && \
 EXPOSE 8080
 
 # 设置启动命令，使用虚拟环境中的 Python
-CMD ["nb","run","--host", "0.0.0.0"]
+CMD ["uvicorn", "bot:app", "--host", "0.0.0.0", "--port", "8080"]
