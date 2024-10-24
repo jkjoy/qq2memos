@@ -4,12 +4,11 @@ WORKDIR /app
 
 COPY ./ /app
 
-RUN rm -rf /app/.venv
 # 创建虚拟环境
 RUN python -m venv .venv --prompt nonebot2
 # 设置环境变量以使用虚拟环境
 ENV PATH="/app/.venv/bin:$PATH"
-
+ENV MEMOS_API="https://memos.ee/api/v1/memos"
 # 激活虚拟环境并安装依赖
 RUN . .venv/bin/activate && \
     pip install nonebot-adapter-console && \
@@ -21,4 +20,4 @@ RUN . .venv/bin/activate && \
 EXPOSE 8080
 
 # 设置启动命令，使用虚拟环境中的 Python
-CMD ["uvicorn", "bot:app", "--host", "0.0.0.0", "--port", "8080"]
+CMD ["nb","run"]
