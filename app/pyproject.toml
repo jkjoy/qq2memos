@@ -10,7 +10,7 @@ adapters = [
     { name = "OneBot V11", module_name = "nonebot.adapters.onebot.v11" }
 ]
 plugins = []
-plugin_dirs = ["memos/plugins"]
+plugin_dirs = ["src/plugins"]
 builtin_plugins = ["echo"]
  
 [tool.poetry]
@@ -22,6 +22,7 @@ authors = ["Sun <sun@jiong.us>"]
 [tool.poetry.dependencies]
 python = "^3.10"
 nonebot2 = {extras = ["fastapi"], version = "^2.3.3"}
+httpx = "^0.27.2"
 
 [tool.poetry.dev-dependencies]
 
