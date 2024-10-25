@@ -1,6 +1,6 @@
 from nonebot import on_command, on_message, get_driver
 from nonebot.rule import to_me
-from nonebot.adapters.onebot.v11 import Bot, Event, Message
+from nonebot.adapters.onebot.v11 import Bot, Event, Message, MessageSegment
 from nonebot.params import CommandArg
 import json
 import os
@@ -72,6 +72,14 @@ memo = on_message(priority=5)
 async def handle_memo(bot: Bot, event: Event):
     user_id = event.get_user_id()
     message = event.get_message()
+
+    # 检查消息是否在群聊中
+    is_group_message = event.message_type == "group"
+
+    # 如果是群聊消息，检查消息是否包含 @ 机器人
+    if is_group_message:
+        if not any(seg.type == "at" and seg.data.get("qq") == bot.self_id for seg in message):
+            return
 
     users_data = read_json()
     user_info = users_data.get(user_id)
